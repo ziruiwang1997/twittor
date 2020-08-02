@@ -4,7 +4,7 @@ LABEL maintainer="Peng Xiao <xiaoquwl@gmail.com>"
 
 RUN apk add --no-cache gcc musl-dev libffi-dev openssl-dev
 
-COPY requirements.txt /twittor
+COPY requirements.txt /twittor/requirements.txt
 
 WORKDIR /twittor
 
