@@ -7,10 +7,13 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=mysql+pymysql://root:root@172.31.26.251:3306/twittor
+      - DATABASE_URL=mysql+pymysql://root:root@some-mysql:3306/twittor
       - MAIL_USERNAME=twittorservice123@gmail.com
       - MAIL_PASSWORD=twittoradmin123
-
+    depends_on:  #启动依赖
+      - some-mysql
+    links:  #方便可以使用服务名访问： mysql:33061
+      - some-mysql
   nginx:
     restart: always
     build: ./nginx/
