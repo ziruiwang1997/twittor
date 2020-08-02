@@ -4,6 +4,7 @@ services:
   web:
     build:
       context: .
+    image: web:1.0.3
     ports:
       - "8000:8000"
     environment:
