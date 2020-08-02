@@ -9,7 +9,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=mysql+pymysql://root:root@some-mysql:3307/twittor
+      - DATABASE_URL=mysql+pymysql://root:root@some-mysql:3306/twittor
       - MAIL_USERNAME=twittorservice123@gmail.com
       - MAIL_PASSWORD=twittoradmin123
     depends_on:  #启动依赖
@@ -33,7 +33,7 @@ services:
     image: mysql:5.7
     restart: always
     ports:
-      - 3307:3307
+      - 3306:3306
     volumes:
       - ./mysql/data/:/var/lib/mysql/
 #      - ./mysql/conf/my.cnf:/etc/my.cnf
