@@ -21,3 +21,23 @@ services:
       - "80:80"
     links:
       - web
+      -
+  some-mysql:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql/data/:/var/lib/mysql/
+#      - ./mysql/conf/my.cnf:/etc/my.cnf
+      - ./mysql/conf:/etc/mysql/conf.d
+      - ./mysql/conf/my.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+      - ./mysql/conf/my.cnf:/etc/mysql/my.cnf
+      - ./mysql/conf/my.cnf:/etc/my.cnf
+    environment:
+      - MYSQL_DATABASE=twittor
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
+      - TZ=Asia/Shanghai
+      - privileged=true
+    command: --max_allowed_packet=100M --innodb_file_per_table=1
