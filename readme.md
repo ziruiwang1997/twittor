@@ -81,7 +81,8 @@ cd /home/ubuntu/twittor
 ### 4.2 部署与启动工程
 ```bash
 git pull
-docker-compose up --remove-orphans -d
+docker-compose down
+docker-compose up --remove-orphans -d --build
 ```
 
 
