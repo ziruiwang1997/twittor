@@ -23,9 +23,9 @@ services:
     ports:
       - "80:80"
     links:
-      - web
+      - web     #表示 nginx 内的配置，可以直接使用 nginx这个 容器名称，服务nignx服务 如：proxy_pass http://web:8000;
     depends_on:
-      - web
+      - web     # 表示在 启动nginx 服务器前，需要先确保 web服务器容器已经启动
     restart: always
 
 
@@ -35,12 +35,12 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./mysql/data/:/var/lib/mysql/
+      - ./mysql/data/:/var/lib/mysql/   # 将容器内的Mysql数据目录挂载到 我们的服务器宿主机目录。  宿主机目录：容器目录
 #      - ./mysql/conf/my.cnf:/etc/my.cnf
       - ./mysql/conf:/etc/mysql/conf.d
       - ./mysql/conf/my.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
       - ./mysql/conf/my.cnf:/etc/mysql/my.cnf
-      - ./mysql/conf/my.cnf:/etc/my.cnf
+      - ./mysql/conf/my.cnf:/etc/my.cnf   # 还可以挂载宿主机的配置文件到容器里面，实现定制化mysql配置
     environment:
       - MYSQL_DATABASE=twittor
       - MYSQL_ROOT_PASSWORD=root
