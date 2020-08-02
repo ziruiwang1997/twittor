@@ -10,7 +10,11 @@ cd /home/ubuntu/twittor
 ### 启动工程
 ```bash
 git pull
-docker-compose up --remove-orphans -d 
+netstat -lanp | grep 3306 | awk '{print $7}' | awk -F '/' '{print $1}' | xargs kill -9
+netstat -lanp | grep 8000 | awk '{print $7}' | awk -F '/' '{print $1}' | xargs kill -9
+netstat -lanp | grep 80 | awk '{print $7}' | awk -F '/' '{print $1}' | xargs kill -9
+docker-compose up --remove-orphans 
+
 ```
 
 
