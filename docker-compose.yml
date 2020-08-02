@@ -4,7 +4,8 @@ services:
   web:
     build:
       context: .
-    image: web:1.0.3
+    image: web:1.0.4
+    restart: always
     ports:
       - "8000:8000"
     environment:
@@ -18,12 +19,15 @@ services:
 
 
   nginx:
-    restart: always
     build: ./nginx/
     ports:
       - "80:80"
     links:
       - web
+    depends_on:
+      - web
+    restart: always
+
 
   some-mysql:
     image: mysql:5.7
