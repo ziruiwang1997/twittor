@@ -7,9 +7,9 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=mysql+pymysql://root:root@127.0.0.1:3306/twittor
-      - MAIL_USERNAME=xxxx@gmail.com
-      - MAIL_PASSWORD=xxxxxxxxx
+      - DATABASE_URL=mysql+pymysql://root:root@172.31.26.251:3306/twittor
+      - MAIL_USERNAME=twittorservice123@gmail.com
+      - MAIL_PASSWORD=twittoradmin123
 
   nginx:
     restart: always
