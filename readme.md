@@ -7,14 +7,9 @@ cd /home/ubuntu/twittor
 
 
 
-### 更新工程
-```bash
-git pull
-```
-
-
 ### 启动工程
 ```bash
+git pull
 docker-compose up --remove-orphans -d 
 ```
 
