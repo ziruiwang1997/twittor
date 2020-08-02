@@ -4,7 +4,7 @@ services:
   web:
     build:
       context: .
-    image: web:1.0.4
+    image: web:2.0.4
     restart: always
     ports:
       - "8000:8000"
