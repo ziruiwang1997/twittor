@@ -16,7 +16,8 @@ services:
       - some-mysql
     links:  #方便可以使用服务名访问： mysql:3306
       - some-mysql
-
+    volumes:
+      - ./:/twittor
 
   nginx:
     build: ./nginx/
